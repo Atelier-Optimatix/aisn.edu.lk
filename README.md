@@ -115,7 +115,8 @@ same order, with their original names, designations and photographs.
   requests. Montserrat is self-hosted under `public/fonts/montserrat/`.
 - There are no contact forms, analytics scripts, cookies or server endpoints.
   The reference site has no contact form, so none was added.
-- External links (Facebook, the designer credit) open the respective sites.
+- External links (the admissions portal, Facebook and the designer credit) open
+  the respective sites.
 - The only interactive features are the original template behaviours: the
   navigation dropdown, mobile off-canvas menu, home-page carousel, gallery
   lightbox and scroll-to-top button.
