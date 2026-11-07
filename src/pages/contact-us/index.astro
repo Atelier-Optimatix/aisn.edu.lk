@@ -1,0 +1,8 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import content from '../../fragments/contact-us.html?raw';
+---
+
+<BaseLayout title="CONTACT US" current="contact" pageClass="page-6" pageCss="styles/pages/contact-us.css">
+  <Fragment set:html={content} />
+</BaseLayout>

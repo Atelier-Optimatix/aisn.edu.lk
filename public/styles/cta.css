@@ -1,0 +1,94 @@
+/* "CONNECT WITH US TODAY" call-to-action band.
+   Rules lifted from the reference page CSS (about-us CTA section) so the
+   shared band renders identically on every page. */
+.sp-page-builder .page-content #section-id-1707285582719 {
+  padding-top: 100px;
+  padding-right: 0px;
+  padding-bottom: 80px;
+  padding-left: 0px;
+  margin: 0px;
+  background-image: url('../images/Untitled-3.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 0 0;
+  box-shadow: 0 0 0 0 #ffffff;
+}
+.sp-page-builder .page-content #section-id-1707285582719 > .sppb-row-overlay {
+  mix-blend-mode: normal;
+}
+#sppb-addon-wrapper-1707285582733 {
+  margin: 0px 0px 30px 0px;
+}
+#sppb-addon-1707285582733 {
+  color: #f6b501;
+  box-shadow: 0 0 0 0 #ffffff;
+}
+#sppb-addon-1707285582733 .sppb-addon-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+#sppb-addon-1707285582733 .sppb-addon-title {
+  font-family: 'Montserrat';
+}
+#sppb-addon-1707285582733 h2.sppb-addon-title {
+  margin: 0px 0px 30px 0px;
+  text-transform: none;
+  padding: 0px;
+}
+#sppb-addon-wrapper-1707285582734 {
+  margin: 0px 0px 30px 0px;
+}
+#sppb-addon-1707285582734 {
+  color: #ffffff;
+  box-shadow: 0 0 0 0 #ffffff;
+}
+#sppb-addon-1707285582734 .sppb-addon-title {
+  font-size: 35px;
+  font-weight: 600;
+}
+#sppb-addon-1707285582734 .sppb-addon-title {
+  font-family: 'Montserrat';
+}
+#sppb-addon-1707285582734 h2.sppb-addon-title {
+  margin: 0px 0px 30px 0px;
+  text-transform: none;
+  padding: 0px;
+}
+#sppb-addon-wrapper-1707285582735 {
+  margin: 0px 0px 30px 0px;
+}
+#sppb-addon-1707285582735 {
+  color: #ffffff;
+  box-shadow: 0 0 0 0 #ffffff;
+}
+#sppb-addon-1707285582735 .sppb-addon-content {
+  font-family: 'Montserrat';
+}
+#sppb-addon-1707285582735 {
+  font-size: 16px;
+}
+#sppb-addon-wrapper-1707285582736 {
+  margin: 0px 0px 30px 0px;
+}
+#sppb-addon-1707285582736 {
+  box-shadow: 0 0 0 0 #ffffff;
+}
+#sppb-addon-1707285582736 .sppb-btn {
+  font-family: 'Montserrat';
+}
+#sppb-addon-1707285582736 #btn-1707285582736.sppb-btn-custom {
+  font-weight: 600;
+}
+#sppb-addon-1707285582736 #btn-1707285582736.sppb-btn-custom {
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 16px;
+}
+#sppb-addon-1707285582736 #btn-1707285582736.sppb-btn-custom:hover {
+  background-color: #f6b501;
+  color: #ffffff;
+}
+#sppb-addon-1707285582736 .sppb-btn i {
+  margin: 0px;
+}

@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import content from '../../../fragments/gallery.html?raw';
+---
+
+<BaseLayout title="GALLERY" current="gallery" pageClass="page-7" pageCss="styles/pages/about-us-gallery.css">
+  <Fragment set:html={content} />
+
+  <Fragment slot="head">
+    <script is:inline>
+      jQuery(function ($) {
+        $('#sppb-addon-1708408963901 ul li').magnificPopup({
+          delegate: 'a',
+          type: 'image',
+          mainClass: 'mfp-no-margins mfp-with-zoom',
+          gallery: { enabled: true },
+          image: { verticalFit: true },
+          zoom: { enabled: true, duration: 300 },
+        });
+        $('#sppb-addon-1708567763358 ul li').magnificPopup({
+          delegate: 'a',
+          type: 'image',
+          mainClass: 'mfp-no-margins mfp-with-zoom',
+          gallery: { enabled: true },
+          image: { verticalFit: true },
+          zoom: { enabled: true, duration: 300 },
+        });
+        $('#sppb-addon-1708567763368 ul li').magnificPopup({
+          delegate: 'a',
+          type: 'image',
+          mainClass: 'mfp-no-margins mfp-with-zoom',
+          gallery: { enabled: true },
+          image: { verticalFit: true },
+          zoom: { enabled: true, duration: 300 },
+        });
+        $('#sppb-addon-1708567763363 ul li').magnificPopup({
+          delegate: 'a',
+          type: 'image',
+          mainClass: 'mfp-no-margins mfp-with-zoom',
+          gallery: { enabled: true },
+          image: { verticalFit: true },
+          zoom: { enabled: true, duration: 300 },
+        });
+      });
+    </script>
+  </Fragment>
+</BaseLayout>

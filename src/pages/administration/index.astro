@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import content from '../../fragments/administration.html?raw';
+---
+
+<BaseLayout
+  title="ADMINISTRATION"
+  current="administration"
+  pageClass="page-4"
+  pageCss="styles/pages/administration.css"
+>
+  <Fragment set:html={content} />
+</BaseLayout>

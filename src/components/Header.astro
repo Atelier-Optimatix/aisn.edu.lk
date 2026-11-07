@@ -1,0 +1,110 @@
+---
+import { navItems, isActive, site } from '../data/nav';
+
+interface Props {
+  current: string;
+}
+
+const { current } = Astro.props;
+---
+
+<header id="sp-header">
+  <div class="container">
+    <div class="container-inner">
+      <div class="row">
+        <!-- Logo -->
+        <div id="sp-logo" class="col-auto">
+          <div class="sp-column">
+            <div class="logo">
+              <a href="./">
+                <img
+                  class="logo-image  d-none d-lg-inline-block"
+                  srcset="images/cropped-cropped-ais_logo_front.png 1x"
+                  src="images/cropped-cropped-ais_logo_front.png"
+                  alt={`${site.name} - ${site.tagline}`}
+                />
+                <img
+                  class="logo-image-phone d-inline-block d-lg-none"
+                  src="images/aisn-logo.png"
+                  alt={`${site.name} - ${site.tagline}`}
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Menu -->
+        <div id="sp-menu" class="col-auto flex-auto">
+          <div class="sp-column  d-flex justify-content-end align-items-center">
+            <nav class="sp-megamenu-wrapper d-flex" role="navigation">
+              <ul class="sp-megamenu-parent menu-animation-fade-up d-none d-lg-block">
+                {navItems.map((item) => (
+                  <li
+                    class:list={[
+                      'sp-menu-item',
+                      item.children && 'sp-has-child',
+                      isActive(item, current) && 'active',
+                      item.key === current && 'current-item',
+                    ]}
+                  >
+                    <a
+                      href={item.href}
+                      aria-current={item.key === current ? 'page' : undefined}
+                    >
+                      {item.label}
+                    </a>
+                    {item.children && (
+                      <div
+                        class="sp-dropdown sp-dropdown-main sp-menu-right"
+                        style="width: 240px;"
+                      >
+                        <div class="sp-dropdown-inner">
+                          <ul class="sp-dropdown-items">
+                            {item.children.map((child) => (
+                              <li
+                                class:list={[
+                                  'sp-menu-item',
+                                  child.key === current && 'active',
+                                ]}
+                              >
+                                <a href={child.href}>{child.label}</a>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    )}
+                  </li>
+                ))}
+              </ul>
+              <a
+                id="offcanvas-toggler"
+                aria-label="Menu"
+                class="offcanvas-toggler-right"
+                href="#"
+              >
+                <div class="burger-icon" aria-hidden="true">
+                  <span></span><span></span><span></span>
+                </div>
+              </a>
+            </nav>
+
+            <!-- Related Modules -->
+            <div class="d-none d-lg-flex header-modules align-items-center"></div>
+
+            <!-- if offcanvas position right -->
+            <a
+              id="offcanvas-toggler"
+              aria-label="Menu"
+              title="Menu"
+              class="mega_offcanvas offcanvas-toggler-secondary offcanvas-toggler-right d-flex align-items-center"
+              href="#"
+            >
+              <div class="burger-icon"><span></span><span></span><span></span></div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

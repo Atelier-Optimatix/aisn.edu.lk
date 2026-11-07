@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import content from '../fragments/home.html?raw';
+---
+
+<BaseLayout
+  title="Adventist International School Negombo"
+  current="home"
+  pageClass="page-1"
+  pageCss="styles/pages/index.css"
+>
+  <Fragment set:html={content} />
+</BaseLayout>

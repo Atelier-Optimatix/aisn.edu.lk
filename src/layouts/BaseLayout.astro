@@ -1,0 +1,141 @@
+---
+import Header from '../components/Header.astro';
+import Offcanvas from '../components/Offcanvas.astro';
+import Footer from '../components/Footer.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+import { site } from '../data/nav';
+
+interface Props {
+  title: string;
+  description?: string;
+  current: string;
+  /** SP Page Builder page class from the reference (e.g. page-1). */
+  pageClass?: string;
+  /** Whether the shared "CONNECT WITH US TODAY" band appears at the end. */
+  cta?: boolean;
+  /** Path (relative to public/) of the page-specific stylesheet. */
+  pageCss?: string;
+}
+
+const {
+  title,
+  description = site.description,
+  current,
+  pageClass,
+  cta = true,
+  pageCss,
+} = Astro.props;
+
+// <base> needs a trailing slash so relative URLs resolve inside the project
+// site (e.g. /aisn.edu.lk/images/...), not at the domain root.
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
+const fullTitle = current === 'home' ? site.name : title;
+---
+
+<!doctype html>
+<html lang="en-gb" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta charset="utf-8" />
+    <base href={base} />
+    <meta name="description" content={description} />
+    <title>{fullTitle}</title>
+    <link
+      href="images/adventist-mobile2-removebg-preview.png"
+      rel="shortcut icon"
+      type="image/vnd.microsoft.icon"
+    />
+    <link rel="preload" href="fonts/montserrat/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin />
+
+    <link href="components/com_sppagebuilder/assets/css/font-awesome-5.min.css" rel="stylesheet" />
+    <link href="components/com_sppagebuilder/assets/css/font-awesome-v4-shims.css" rel="stylesheet" />
+    <link href="components/com_sppagebuilder/assets/css/animate.min.css" rel="stylesheet" />
+    <link href="components/com_sppagebuilder/assets/css/sppagebuilder.css" rel="stylesheet" />
+    <link href="components/com_sppagebuilder/assets/css/magnific-popup.css" rel="stylesheet" />
+    <link href="templates/shaper_helixultimate/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="plugins/system/helixultimate/assets/css/system-j3.min.css" rel="stylesheet" />
+    <link href="templates/shaper_helixultimate/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="templates/shaper_helixultimate/css/v4-shims.min.css" rel="stylesheet" />
+    <link href="templates/shaper_helixultimate/css/template.css" rel="stylesheet" />
+    <link href="templates/shaper_helixultimate/css/presets/default.css" rel="stylesheet" />
+    <link href="styles/site.css" rel="stylesheet" />
+    <link href="styles/cta.css" rel="stylesheet" />
+    {pageCss && <link href={pageCss} rel="stylesheet" />}
+
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={`${site.name} - ${site.tagline}`} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content={`${site.name} - ${site.tagline}`} />
+
+    <!-- Minimal Joomla shim: the Helix template JS only needs getOptions('data'). -->
+    <script is:inline>
+      window.Joomla = window.Joomla || {
+        getOptions: function (key) {
+          if (key === 'data') {
+            return {
+              breakpoints: { tablet: 991, mobile: 480 },
+              header: { stickyOffset: '100' },
+            };
+          }
+          if (key === 'csrf.token') return '';
+          return {};
+        },
+      };
+    </script>
+    <script is:inline src="media/jui/js/jquery.min.js"></script>
+    <script is:inline src="media/jui/js/jquery-noconflict.js"></script>
+    <script is:inline src="media/jui/js/jquery-migrate.min.js"></script>
+    <script is:inline src="components/com_sppagebuilder/assets/js/jquery.parallax.js"></script>
+    <script is:inline src="components/com_sppagebuilder/assets/js/sppagebuilder.js" defer></script>
+    <script is:inline src="components/com_sppagebuilder/assets/js/jquery.magnific-popup.min.js"></script>
+    <script is:inline src="templates/shaper_helixultimate/js/bootstrap.bundle.min.js"></script>
+    <script is:inline src="templates/shaper_helixultimate/js/main.js"></script>
+    <script is:inline src="media/system/js/core.js"></script>
+
+    <slot name="head" />
+  </head>
+  <body
+    class="site helix-ultimate hu com-sppagebuilder view-page layout-default task-none itemid-101 en-gb ltr sticky-header layout-fluid offcanvas-init offcanvs-position-right"
+  >
+    <div class="body-wrapper">
+      <div class="body-innerwrapper">
+        <div class="sticky-header-placeholder"></div>
+        <Header current={current} />
+        <section id="sp-section-1">
+          <div class="row">
+            <div id="sp-title" class="col-lg-12">
+              <div class="sp-column"></div>
+            </div>
+          </div>
+        </section>
+        <section id="sp-main-body">
+          <div class="row">
+            <main id="sp-component" class="col-lg-12">
+              <div class="sp-column">
+                <div id="system-message-container" aria-live="polite"></div>
+                <div id="sp-page-builder" class:list={['sp-page-builder', pageClass]}>
+                  <div class="page-content">
+                    <slot />
+                    {cta && <CtaBanner />}
+                  </div>
+                </div>
+              </div>
+            </main>
+          </div>
+        </section>
+        <Footer />
+      </div>
+    </div>
+
+    <!-- Off Canvas Menu -->
+    <div class="offcanvas-overlay"></div>
+    <Offcanvas current={current} />
+
+    <!-- Go to top -->
+    <a href="#" class="sp-scroll-up" aria-label="Scroll Up">
+      <span class="fas fa-angle-up" aria-hidden="true"></span>
+    </a>
+  </body>
+</html>

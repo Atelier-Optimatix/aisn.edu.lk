@@ -1,0 +1,58 @@
+/* Montserrat, self-hosted (variable, latin subset) */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('../fonts/montserrat/montserrat-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Global template rules copied from the reference template head */
+@media only screen and (min-width: 1024px) {
+  .burger-icon {
+    display: none;
+  }
+  .sp-megamenu-parent > li > a,
+  .sp-megamenu-parent > li > span,
+  .sp-megamenu-parent .sp-dropdown li.sp-menu-item > a {
+    font-family: 'Arial', sans-serif;
+    text-decoration: none;
+  }
+  .logo-image {
+    height: 36px;
+  }
+  .logo-image-phone {
+    height: 36px;
+  }
+  @media (max-width: 992px) {
+    .logo-image {
+      height: 36px;
+    }
+    .logo-image-phone {
+      height: 36px;
+    }
+  }
+  @media (max-width: 576px) {
+    .logo-image {
+      height: 36px;
+    }
+    .logo-image-phone {
+      height: 36px;
+    }
+  }
+}
+
+/* Keep the carousel/slider images from overflowing their columns */
+.sppb-carousel .sppb-carousel-inner > .sppb-item > img {
+  width: 100%;
+  height: auto;
+}
+
+/* The reference hides the phone logo on desktop, but if a browser has no
+   support for the d-* utilities the crest must still be visible. */
+.logo-image-phone {
+  height: 36px;
+}

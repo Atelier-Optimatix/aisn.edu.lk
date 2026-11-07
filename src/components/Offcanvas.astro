@@ -1,0 +1,68 @@
+---
+import { navItems, isActive, site } from '../data/nav';
+
+interface Props {
+  current: string;
+}
+
+const { current } = Astro.props;
+---
+
+<div class="offcanvas-menu">
+  <div class="d-flex align-items-center p-3 pt-4">
+    <div class="logo">
+      <a href="./">
+        <img
+          class="logo-image  d-none d-lg-inline-block"
+          srcset="images/cropped-cropped-ais_logo_front.png 1x"
+          src="images/cropped-cropped-ais_logo_front.png"
+          alt={`${site.name} - ${site.tagline}`}
+        />
+        <img
+          class="logo-image-phone d-inline-block d-lg-none"
+          src="images/aisn-logo.png"
+          alt={`${site.name} - ${site.tagline}`}
+        />
+      </a>
+    </div>
+    <a href="#" class="close-offcanvas" aria-label="Close Off-canvas">
+      <div class="burger-icon">
+        <span></span><span></span><span></span>
+      </div>
+    </a>
+  </div>
+  <div class="offcanvas-inner">
+    <div class="d-flex header-modules mb-3"></div>
+
+    <div class="sp-module">
+      <div class="sp-module-content">
+        <ul class="menu nav-pills">
+          {navItems.map((item, index) => (
+            <li
+              class:list={[
+                `item-${101 + index}`,
+                item.key === 'home' && 'default',
+                item.children && 'menu-deeper menu-parent',
+                isActive(item, current) && 'current active',
+              ]}
+            >
+              <a href={item.href}>
+                {item.label}
+                {item.children && <span class="menu-toggler"></span>}
+              </a>
+              {item.children && (
+                <ul class="menu-child">
+                  {item.children.map((child) => (
+                    <li class:list={[child.key === current && 'current active']}>
+                      <a href={child.href}>{child.label}</a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import content from '../../fragments/academics.html?raw';
+---
+
+<BaseLayout title="ACADEMICS" current="academics" pageClass="page-3" pageCss="styles/pages/academics.css">
+  <Fragment set:html={content} />
+</BaseLayout>

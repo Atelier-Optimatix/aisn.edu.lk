@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import content from '../../../fragments/articles.html?raw';
+---
+
+<BaseLayout
+  title="OUR EVENTS"
+  current="articles"
+  pageClass="page-8"
+  cta={false}
+  pageCss="styles/pages/about-us-articles.css"
+>
+  <Fragment set:html={content} />
+</BaseLayout>
