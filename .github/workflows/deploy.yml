@@ -36,7 +36,7 @@ jobs:
           # Project sites are served from /<repository-name>/. For a custom
           # domain, change this to "/" (or remove it and set `base` in
           # astro.config.mjs).
-          BASE_PATH: /${{ github.event.repository.name }}
+          BASE_PATH: /
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
