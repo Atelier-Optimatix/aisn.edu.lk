@@ -15,6 +15,7 @@ client-side framework is required at runtime.
 - Node.js 22.23.4 or newer (CI uses Node 22)
 - npm 10 or newer
 
+
 ## Development
 
 ```bash
