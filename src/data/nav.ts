@@ -36,6 +36,6 @@ export const site = {
   facebook: 'https://www.facebook.com/aisn2020/',
   contactHref: 'contact-us/',
   copyright: '© 2026 Seventh-Day Adventist International School. Designed By ',
-  designer: 'Ceylon Innovation',
-  designerHref: 'https://www.ceyloninnovation.com/',
+  designer: 'Atelier Optimatix',
+  designerHref: 'https://atelieroptimatix.com/',
 };
